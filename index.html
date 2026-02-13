@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Our Love Journey ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#ffc0cb,#ffd6e7);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+color:#fff;
+overflow:hidden;
+}
+
+.card{
+background:rgba(255,255,255,0.2);
+padding:40px;
+border-radius:20px;
+max-width:520px;
+}
+
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:20px;
+font-size:18px;
+cursor:pointer;
+}
+
+.yes{background:#ff4081;color:white;}
+.no{background:#555;color:white;}
+
+.heart{
+position:absolute;
+top:-20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
+
+.choco{font-size:32px;cursor:pointer;margin:6px;}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="box">
+<h2>Propose Day 💍</h2>
+<p>You are my everything. I want to be with you my whole life. Will you stay with me forever?</p>
+<button class="yes" onclick="choco()">YES ❤️</button>
+<button class="no" onclick="this.style.display='none'">NO</button>
+</div>
+
+<script>
+
+/* Falling hearts */
+function heart(){
+let h=document.createElement("div");
+h.innerHTML="💗";
+h.className="heart";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),8000);
+}
+setInterval(heart,300);
+
+/* Chocolate Day */
+function choco(){
+box.innerHTML="<h2>Chocolate Day 🍫</h2><p>Pick all chocolates</p><div id='c'></div>";
+for(let i=0;i<9;i++){
+let s=document.createElement("span");
+s.innerHTML="🍫";
+s.className="choco";
+s.onclick=function(){this.remove(); check();};
+c.appendChild(s);
+}
+}
+
+function check(){
+if(document.querySelectorAll(".choco").length==0) teddy();
+}
+
+/* Teddy Day */
+function teddy(){
+box.innerHTML="<h2>Teddy Day 🧸</h2><p>You are my cutest teddy. I want to hug you and always care for you.</p><button class='yes' onclick='promise()'>Next ❤️</button>";
+}
+
+/* Promise Day */
+function promise(){
+box.innerHTML="<h2>Promise Day 🤝</h2><p>I promise to stand beside you, support you, and never disappoint you.</p><button class='yes' onclick='hug()'>Next ❤️</button>";
+}
+
+/* Hug Day */
+function hug(){
+box.innerHTML="<h2>Hug Day 🤗</h2><p>You are the warmth of my heart. I want you to feel my heartbeat forever.</p><button class='yes' onclick='kiss()'>Next ❤️</button>";
+}
+
+/* Kiss Day */
+function kiss(){
+box.innerHTML="<h2>Kiss Day 💋</h2><p>Sending you a gentle forehead kiss and a kiss full of love.</p><h3>Forever Yours ❤️</h3>";
+}
+
+</script>
+
+</body>
+</html>
